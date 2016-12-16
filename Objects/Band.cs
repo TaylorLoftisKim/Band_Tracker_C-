@@ -36,5 +36,90 @@ namespace Tracker
     {
       return _name;
     }
+
+    public static List<Band> GetAll()
+		{
+			List<Band> allBands = new List<Band>{};
+
+			SqlConnection conn = DB.Connection();
+			conn.Open();
+
+			SqlCommand cmd = new SqlCommand("SELECT * FROM bands;", conn);
+			SqlDataReader rdr = cmd.ExecuteReader();
+
+			while(rdr.Read())
+			{
+        int bandId = rdr.GetInt32(0);
+        string bandName = rdr.GetString(1);
+
+        Band newBand = new Band(bandName, bandId);
+        allBands.Add(newband);
+      }
+      if(rdr != null)
+      {
+        rdr.Close();
+      }
+      if(conn != null)
+      {
+        conn.Close();
+      }
+      return allbands;
+    }
+
+    public void Save()
+		{
+			SqlConnection conn = DB.Connection();
+			conn.Open();
+
+			SqlCommand cmd = new SqlCommand("INSERT INTO bands (name) OUTPUT INSERTED.id VALUES (@BandsName);", conn);
+
+			SqlParameter nameParameter = new SqlParameter("@BandsName", this.GetName());
+
+			cmd.Parameters.Add(nameParameter);
+
+			SqlDataReader rdr = cmd.ExecuteReader();
+
+			while(rdr.Read())
+			{
+				this._id = rdr.GetInt32(0);
+			}
+			if (rdr != null)
+			{
+				rdr.Close();
+			}
+			if (conn != null)
+			{
+				conn.Close();
+			}
+
+      public static Band Find(int id)
+      {
+        SqlConnection conn = DB.Connection();
+        conn.Open();
+
+        SqlCommand cmd = new SqlCommand("SELECT * FROM bands WHERE id = @BandId;", conn);
+        SqlParameter courseIdParameter = new SqlParameter("@BandId", id.ToString());
+        cmd.Parameters.Add(courseIdParameter);
+        SqlDataReader rdr = cmd.ExecuteReader();
+
+        int foundBandId = 0;
+        string foundBandName = null;
+        while(rdr.Read())
+        {
+          foundBandId = rdr.GetInt32(0);
+          foundBandName = rdr.GetString(1);
+        }
+        Band foundBand = new Band(foundBandName, foundBandId);
+
+        if(rdr != null)
+        {
+          rdr.Close();
+        }
+        if(conn != null)
+        {
+          conn.Close();
+        }
+        return foundBand;
+      }}
   }
 }
