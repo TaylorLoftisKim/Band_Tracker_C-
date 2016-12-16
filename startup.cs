@@ -5,7 +5,7 @@ using Nancy.Owin;
 using Nancy;
 using Nancy.ViewEngines.Razor;
 
-namespace BandTracker
+namespace Tracker
 {
   public class Startup
   {
@@ -16,7 +16,7 @@ namespace BandTracker
   }
   public static class DBConfiguration
   {
-    public static string ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=bandTracker;Integrated Security=SSPI;";
+    public static string ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=tracker;Integrated Security=SSPI;";
   }
   public class CustomRootPathProvider : IRootPathProvider
   {
