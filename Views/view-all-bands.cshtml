@@ -1,1 +1,18 @@
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="../Content/css/styles.css">
+		<title>Band Tracker</title>
+  </head>
+  <body>
+    <h1>Here are all of your bands:</h1>
+    @foreach(var band in @Model)
+    {
+      <h3><a href="/band/@band.GetId()">Name: @band.GetName()</a></h3>
+      <br>
+    }
+    <h3><a href="/">Home</a></h3>
+  </body>
+</html>

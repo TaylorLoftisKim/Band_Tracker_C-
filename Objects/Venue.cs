@@ -28,7 +28,7 @@ namespace Tracker
         return (idEquality && nameEquality);
       }
     }
-    
+
     public int GetId()
     {
       return _id
@@ -111,7 +111,7 @@ namespace Tracker
         foundVenueId = rdr.GetInt32(0);
         foundVenueName = rdr.GetString(1);
       }
-      Venue foundVenue = new Venue(foundVenueName, foundCourseId);
+      Venue foundVenue = new Venue(foundVenueName, foundVenueId);
 
       if(rdr != null)
       {

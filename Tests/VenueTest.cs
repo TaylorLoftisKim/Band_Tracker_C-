@@ -27,7 +27,7 @@ namespace Tracker
     }
 
     [Fact]
-    public void Test_GetStudentsAssociatedWithCourse()
+    public void Test_GetBandsAssociatedWithVenue()
     {
       List<Band> allBands = new List<Band>{};
       List<Band> testBands = new List<Band>{};

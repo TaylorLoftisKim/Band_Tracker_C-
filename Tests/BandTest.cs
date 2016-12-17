@@ -37,7 +37,7 @@ namespace Tracker
       Band newBand = new Band("ExampleBand");
       newBand.Save();
 
-      newBand.AddCourse(newVenue);
+      newBand.AddVenue(newVenue);
       allVenues = newBand.GetVenues();
       testVenues.Add(newVenue);
 

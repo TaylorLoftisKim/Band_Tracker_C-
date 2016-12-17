@@ -22,7 +22,7 @@ namespace Tracker
       }
       else
       {
-        Band newStudent = (Band) otherBand;
+        Band newBand = (Band) otherBand;
         bool idEquality = (this.GetId() == newBand.GetId());
         bool nameEquality = (this.GetName() == newBand.GetName());
         return (idEquality && nameEquality);
