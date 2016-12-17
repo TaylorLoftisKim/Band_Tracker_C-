@@ -1,0 +1,15 @@
+#header {
+  text-align: center;
+}
+body {
+  background-color: tan;
+}
+jumbotron {
+  background-color: grey;
+}
+button {
+  margin-left: 100px;
+}
+#last-col {
+  align-items: center;
+}
